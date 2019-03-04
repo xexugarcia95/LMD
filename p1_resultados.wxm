@@ -1,54 +1,86 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 16.12.0 ] */
+/* [ Created with wxMaxima version 17.10.1 ] */
+/* [wxMaxima: comment start ]
+Ejercicio 2
+   [wxMaxima: comment end   ] */
+
 
 /* [wxMaxima: input   start ] */
 lista:makelist(n^(2)+6*n+8,n,0,30);
 /* [wxMaxima: input   end   ] */
 
+
 /* [wxMaxima: input   start ] */
 lista_2:makelist([n^(3)-256*n^(2)],n,0,260);
 /* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Ejercicio 1
+   [wxMaxima: comment end   ] */
+
 
 /* [wxMaxima: input   start ] */
 sum(n!-2^n,n,1,10),simpsum;
 /* [wxMaxima: input   end   ] */
 
+
 /* [wxMaxima: input   start ] */
 lista_3:makelist(n!-(2)^n,n,1,10);
 /* [wxMaxima: input   end   ] */
 
+
+/* [wxMaxima: comment start ]
+Ejercicio 3
+   [wxMaxima: comment end   ] */
+
+
 /* [wxMaxima: input   start ] */
 lista_4:makelist(n^(2)+n+41,n,1,30);
 /* [wxMaxima: input   end   ] */
+
 
 /* [wxMaxima: input   start ] */
 for i:1 while i<=30 do print(factor(i^2+i+41))
 ;
 /* [wxMaxima: input   end   ] */
 
+
 /* [wxMaxima: input   start ] */
 ((n+1)^2+(n+1)+41)-(n^2+n+41);
 /* [wxMaxima: input   end   ] */
+
 
 /* [wxMaxima: input   start ] */
 load(simplify\_sum);
 /* [wxMaxima: input   end   ] */
 
+
 /* [wxMaxima: input   start ] */
 rat(%o31/41);
 /* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Ejercicio 4
+   [wxMaxima: comment end   ] */
+
 
 /* [wxMaxima: input   start ] */
 lista_5:makelist(2^(n)-1,n,1,257);
 /* [wxMaxima: input   end   ] */
 
+
 /* [wxMaxima: input   start ] */
 for i:1 while i<=257 do print(factor(i));
 /* [wxMaxima: input   end   ] */
 
+
 /* [wxMaxima: input   start ] */
 (2^(p1+p2)-1)-(2^(p1)+1);
 /* [wxMaxima: input   end   ] */
+
+
 
 /* Maxima can't load/batch files which end with a comment! */
 "Created with wxMaxima"$
