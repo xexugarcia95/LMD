@@ -1,0 +1,191 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 13.04.2 ] */
+
+/* [wxMaxima: comment start ]
+ejercicio 1
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+ejercicio 2
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+p(n):= n^2+6*n+8;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist(p(n),n,-4,20);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+assume(n>-3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+assume(p(n)>0);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+rat(p(n+1)-p(n));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+is(rat(p(n+1)-p(n))>0);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+al empezar otro problema, olvidamos la hipótesis asumida
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+forget(n>-3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+forget(p(n)>0);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+q(n):=n^3-256*n^2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist(q(n),n,0,10);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist([n,q(n)],n,0,300);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+luego q(n)>=0 para n>=256
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+assume(n>255);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+suponemos la hipótesis de inducción
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+assume(q(n)>=0);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+is(q(n+1)>=0);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+q(n); rat(q(n+1));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+rat(q(n+1)-q(n));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+ejercicio 3
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=x^2+x+41;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f(1);f(2);f(3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+primep(f(10));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+primep(2^10);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist([x,primep(f(x))],x,1,30);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist([x,primep(f(x))],x,1,50);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+¿cual es el primo siguiente a 10000?
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+next_prime(10000);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+ejercicio 4
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+M:makelist(if primep((2^n)-1) then n,n,2,1000);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A:set(2,3,5,7,13,17,19,31,67,127,257);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Comprueba si un elemento pertenece a un conjunto
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+h(x):=elementp(x,A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+h(2);h(3);h(8);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+setify --> convierte en un cojunto la lista M, subset --> toma los valores donde me da true la funcion booleana h
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+subset(setify(M),h);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Mersonne se equivocó en algunos números de su lista. la conjetura
+no es cierta para n=67 ni para n=257. sin embargo si es cierta para n=61,89 y 107, que no estaban
+incluidos en su lista.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+hay números primos donde 2^n - 1 no es primo 
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+n primo no->(2^n) - 1
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+primep(67);primep((2^67)-1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+B:setdifference(setify(M),{false});
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist(primep(x),x,listify(B));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+ se podría intuir que si (2^n)-1 primo -> n primo  (TEOREMA)
+   [wxMaxima: comment end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
